@@ -1,1 +1,1 @@
-# WES
+# SNP/InDel Annotation
