@@ -1,3 +1,3 @@
 # SNP/InDel Annotation
-annotation.py\\
+annotation.py\n
 reformat.py
