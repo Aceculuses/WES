@@ -134,18 +134,24 @@ if __name__=='__main__':
     txt=inputPath+file
 #    print(txt)
 
-
-    header=['Chr','Start','End','Ref','Alt','Gene.refGene','ExonicFunc.refGene',
-        'Ensembl_ID','snp142','GeneDetail.refGene','ExAC_ALL','esp6500siv2_all',
-        'Freq_1000g2015aug_all','Freq_1000g2015aug_EAS','gnomAD_exome_ALL',
-       'gnomAD_exome_EAS','Otherinfo13','clinsig','Func.refGene']
+    if genomeVersion == 'hg19':
+        header=['Chr','Start','End','Ref','Alt','Gene.refGene','ExonicFunc.refGene',
+                'Ensembl_ID','snp142','GeneDetail.refGene','ExAC_ALL','esp6500siv2_all',
+                'Freq_1000g2015aug_all','Freq_1000g2015aug_EAS','gnomAD_exome_ALL',
+                'gnomAD_exome_EAS','Otherinfo13','clinsig','Func.refGene']
+        na=['Ensembl_ID','Freq_1000g2015aug_all','Freq_1000g2015aug_EAS','gnomAD_exome_ALL',
+          'gnomAD_exome_EAS']
+    else:
+        header=['Chr','Start','End','Ref','Alt','Gene.refGene','ExonicFunc.refGene',
+                'ensembl_ID','avsnp150','GeneDetail.refGene','ExAC_ALL','esp6500siv2_all',
+                'Freq_1000g2015aug_all','Freq_1000g2015aug_EAS','gnomAD_exome_ALL',
+                'gnomAD_exome_EAS','Otherinfo13','clinsig','Func.refGene']
+        na=['ensembl_ID','Freq_1000g2015aug_all','Freq_1000g2015aug_EAS','gnomAD_exome_ALL',
+          'gnomAD_exome_EAS']
     
     clinvar=['/home/ubuntu/software/annovar/humandb/clinvarinfo_db/',genomeVersion,'_clinvarinfo_',clinvar_date]
     
     clinvarcol=['clinvar_',clinvar_date]
-
-    na=['Ensembl_ID','Freq_1000g2015aug_all','Freq_1000g2015aug_EAS','gnomAD_exome_ALL',
-          'gnomAD_exome_EAS']
 
     cmd_Output=['cat ','{} ','| ','cut -f','{} ','> ',outputPath,'{}','.o']
     cmd_sed=['cat ','{} ','| ','cut -f','{} ',"| sed 's#:#\t#g' ","| sed 's#^# #g' ","| sed 's# Otherinfo13#GT\tAD\tDP\tGQ\tPL#g' ",'> ',outputPath,'{}.o']
