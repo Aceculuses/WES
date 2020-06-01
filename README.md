@@ -1,5 +1,5 @@
 # Best Practice for Gemline Variants (SNP/InDel) discovery AND functional annotation
-Hi, this tutorial is based on th summary on my real case analysis for Whole exome sequencing
+Hi, this tutorial is based on th summary of my real clinical cases analysis for Whole exome sequencing. 
 
 
 annotation.py
