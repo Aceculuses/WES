@@ -1,4 +1,4 @@
-# Best Practice for Gemline VariantS (SNP/InDel) discovery AND functional annotation
+# Best Practice for Gemline Variants (SNP/InDel) discovery AND functional annotation
 annotation.py
 
 
