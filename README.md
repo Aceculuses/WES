@@ -4,6 +4,7 @@ To find short gene mutations using whole exome sequencing, it is recommend to fo
 **Download and install GATK4 and Annovar**
 
 **Download Resource bundle**
+-----------------------------
 
 The resource bundle includes reference genomes hg19/hg38, and some well-known databases for storing SNPs/InDel variants information. It is recommend to download these resource, because we will use these databases for following analysis. We will treat these databases as valid and correct reference, and use them to correct errors occuring in our analysis. 
 
