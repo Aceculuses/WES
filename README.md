@@ -6,3 +6,5 @@ To find short gene mutations using whole exome sequencing, it is recommend to fo
 **Download Resource bundle**
 
 https://console.cloud.google.com/storage/browser/genomics-public-data/resources/broad/hg38/v0
+
+https://console.cloud.google.com/storage/browser/gatk-legacy-bundles/b37
