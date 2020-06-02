@@ -4,3 +4,4 @@ To find short gene mutations using whole exome sequencing, it is recommend to fo
 **Download and install GATK4 and Annovar**
 
 **Download Resource bundle**
+https://console.cloud.google.com/storage/browser/genomics-public-data/resources/broad/hg38/v0
