@@ -30,5 +30,5 @@ https://console.cloud.google.com/storage/browser/gatk-legacy-bundles/b37
 
 https://console.cloud.google.com/storage/browser/gcp-public-data--broad-references/hg19/v0
 
-**Raw reads quality control**
+**STEP1: QC of raw reads**
 ----------------------------------
