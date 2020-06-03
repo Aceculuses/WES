@@ -9,9 +9,9 @@ http://download.openbioinformatics.org/annovar_download_form.php
 
 Install GATK4 by conda
 
-'''
+```
 conda install GATK4
-'''
+```
 
 **Download Resource bundle**
 -----------------------------
