@@ -12,6 +12,7 @@ Install GATK4 by conda
 '''
 conda install GATK4
 '''
+
 **Download Resource bundle**
 -----------------------------
 
