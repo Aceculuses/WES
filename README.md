@@ -12,7 +12,11 @@ The resource bundle includes reference genomes hg19/hg38, and some well-known da
 You could choose different resource bundle depending on your data. Typically, hg38 resource bundle is recommend. However, if your sequence library preparation kits are based on hg19 reference genome, you need to use same genome, as the coordinates are different which will affect PCR regions. This situation should be noticed in whole exome sequencing. 
 
 hg38:
+
 https://console.cloud.google.com/storage/browser/genomics-public-data/resources/broad/hg38/v0
 
 hg19:
+
 https://console.cloud.google.com/storage/browser/gatk-legacy-bundles/b37
+
+https://console.cloud.google.com/storage/browser/gcp-public-data--broad-references/hg19/v0
