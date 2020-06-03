@@ -33,4 +33,12 @@ https://console.cloud.google.com/storage/browser/gcp-public-data--broad-referenc
 **STEP1: QC of raw reads**
 ----------------------------------
 
-For Illumina short reads, it is usually following workflow of Fastqc and raw reads cleaning steps. Fastqc allows you to visualized your reads quality. Typically, we want our reads quality to be higher than Q30. Then, we do reads trim. I use [trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) and [fastp](https://github.com/OpenGene/fastp) to trim my raw reads into clean reads. 
+For Illumina short reads, it is usually following workflow of Fastqc and raw reads cleaning steps. Fastqc allows you to visualized your reads quality. Typically, we want our reads quality to be higher than Q30. Then, we do reads trim. I use [trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) and [fastp](https://github.com/OpenGene/fastp) to trim my raw reads into clean reads.
+
+```
+trimmomatic PE -phred33 -threads 6 -quiet -validatePairs read_1.fq read_2.fq read_1.paired.fq read_1.unpaired.fq read_2.paired.fq read_2.paired.fq LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 HEADCROP:8 MINLEN:36
+```
+
+```
+
+```
