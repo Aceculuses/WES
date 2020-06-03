@@ -37,12 +37,15 @@ For Illumina short reads, it is usually following workflow of Fastqc and raw rea
 
 ```
 trimmomatic PE -phred33 -threads 6 -quiet \
-               -validatePairs read_1.fq read_2.fq 
+               -validatePairs read_1.fq read_2.fq \
                               read_1.paired.fq read_1.unpaired.fq \
                               read_2.paired.fq read_2.paired.fq \
                               LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 HEADCROP:8 MINLEN:36
 ```
 
 ```
-
+fastp -i read_1.fq -o read_1.clean.fastq -I read_2.fq -O read_2.clean.fastq \
+      -A -x --cut_mean_quality 20 --cut_front_window_size 4 --cut_front_mean_quality 20 \
+      --cut_tail_window_size 4 --cut_tail_mean_quality 20 -n 5 --cut_front 20 \
+      -f 15 -t 5 -F 15 -T 5
 ```
