@@ -52,6 +52,7 @@ fastp -i read_1.fq -o read_1.clean.fastq -I read_2.fq -O read_2.clean.fastq \
 
 **STEP2: Reads Mapping**
 ----------------------------------
+If you use [bwa](https://github.com/lh3/bwa) or [bwa-mem2](https://github.com/lh3/bwa), you need 
 
 ```
 bwa mem Broad_bundle_hg19/hg19_v0_Homo_sapiens_assembly19.fasta read_1.clean.fastq read_2.clean.fastq > sample.sam
