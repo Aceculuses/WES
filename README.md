@@ -57,7 +57,7 @@ If you use [bwa](https://github.com/lh3/bwa) or [bwa-mem2](https://github.com/lh
 ```
 bwa index reference.fasta
 ```
-
+OR
 ```
 bwa-mem2 index reference.fasta
 ```
