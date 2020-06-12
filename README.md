@@ -65,6 +65,7 @@ Then, you can map your clean reads onto the reference genome
 ```
 bwa mem Broad_bundle_hg19/hg19_v0_Homo_sapiens_assembly19.fasta read_1.clean.fastq read_2.clean.fastq > sample.sam
 ```
+OR
 ```
 bwa-mem2 mem Broad_bundle_hg19/hg19_v0_Homo_sapiens_assembly19.fasta read_1.clean.fastq read_2.clean.fastq > sample.sam
 ```
