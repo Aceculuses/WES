@@ -61,7 +61,7 @@ OR
 ```
 bwa-mem2 index reference.fasta
 ```
-Then, you can map your clean reads onto the reference genome
+Then, you can map your clean reads onto the reference genome.
 ```
 bwa mem Broad_bundle_hg19/hg19_v0_Homo_sapiens_assembly19.fasta read_1.clean.fastq read_2.clean.fastq > sample.sam
 ```
@@ -74,6 +74,8 @@ bwa-mem2 mem Broad_bundle_hg19/hg19_v0_Homo_sapiens_assembly19.fasta read_1.clea
 --------------------------------------
 
 [Haplotype phasing](http://data-science-sequencing.github.io/Win2018/lectures/lecture10/#:~:text=Haplotype%20phasing%20is%20the%20problem,problem%2C%20there%20are%20many%20methods.)
+
+Sequencing depth
 
 
 
