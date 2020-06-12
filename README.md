@@ -53,7 +53,7 @@ fastp -i read_1.fq -o read_1.clean.fastq -I read_2.fq -O read_2.clean.fastq \
 **STEP2: Reads Mapping**
 ----------------------------------
 
-**Other Issues in mutation detection**
+**Other Issues in mutations detection**
 --------------------------------------
 
 [Haplotype phasing](http://data-science-sequencing.github.io/Win2018/lectures/lecture10/#:~:text=Haplotype%20phasing%20is%20the%20problem,problem%2C%20there%20are%20many%20methods.)
