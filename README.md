@@ -1,4 +1,4 @@
-# Best Practice for Germline Variants (SNP/InDel) discovery AND functional annotation
+# Best Practice for Germline Variants (SNP/InDel) discovery AND functional annotation workflow
 To find short gene mutations using whole exome sequencing, it is recommend to follow the workflow of GATK4 and Annovar. [GATK4](https://gatk.broadinstitute.org/hc/en-us) is a famous widely-used tools developed by the Broad Instituite for detecting mutations, and it holds a indusctry standard. Annovar can help you to annotate a variety of databases onto your VCF files. 
 
 **Download and install GATK4 and Annovar**
@@ -52,8 +52,16 @@ fastp -i read_1.fq -o read_1.clean.fastq -I read_2.fq -O read_2.clean.fastq \
 
 **STEP2: Reads Mapping**
 ----------------------------------
-If you use [bwa](https://github.com/lh3/bwa) or [bwa-mem2](https://github.com/lh3/bwa), you need 
+If you use [bwa](https://github.com/lh3/bwa) or [bwa-mem2](https://github.com/lh3/bwa), you need to index you reference file first. 
 
+```
+bwa index reference.fasta
+```
+
+```
+bwa-mem2 index reference.fasta
+```
+Then, you can map your clean reads onto the reference genome
 ```
 bwa mem Broad_bundle_hg19/hg19_v0_Homo_sapiens_assembly19.fasta read_1.clean.fastq read_2.clean.fastq > sample.sam
 ```
