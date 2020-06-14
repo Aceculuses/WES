@@ -77,5 +77,7 @@ bwa-mem2 mem Broad_bundle_hg19/hg19_v0_Homo_sapiens_assembly19.fasta read_1.clea
 
 Sequencing depth
 
+[Variant Intepretation](https://gatk.broadinstitute.org/hc/en-us/articles/360035531692-VCF-Variant-Call-Format)
+
 
 
