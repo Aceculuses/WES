@@ -3234,7 +3234,7 @@ columns after Chr, Start, End, Ref and Alt alleles.
 
 =back
 
-The code was written by Dr. Kai Wang and modified by Dr. Germ·n GastÛn Leparc. 
+The code was written by Dr. Kai Wang and modified by Dr. Germ√°n Gast√≥n Leparc. 
 Various users have provided sample input files for many SNP callin software, for 
 the development of conversion subroutines. We thank these users for their 
 continued support to improve the functionality of the script.
