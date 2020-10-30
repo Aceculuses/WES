@@ -92,8 +92,11 @@ There are several steps need to be done before we call the muations. As we need 
 
 1. MarkDuplicates and Revome PCR effects
 ```
-gatk MarkDuplicates -I $1.sort.bam -M $1.dupMetrix.txt -O $1.rmdup.bam --REMOVE_DUPLICATES true
+gatk MarkDuplicates -I sample.sort.bam -M sample.dupMetrix.txt -O sample.rmdup.bam --REMOVE_DUPLICATES true
 ```
+
+2. addReadGroup
+The second step is tricky
 
 **Other Issues in mutations detection**
 --------------------------------------
