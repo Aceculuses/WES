@@ -107,6 +107,13 @@ FAQs from GATK official website
 
 https://gatk.broadinstitute.org/hc/en-us/articles/360035532352-Errors-about-read-group-RG-information
 
+3. Create Sequence Dict file
+
+The reference fasta dictionary file should be create. This file is a input file for the downstream input. This file just can be created only once.
+```
+gatk CreateSequenceDictionary -R hg19_v0_Homo_sapiens_assembly19.fasta -O hg19_v0_Homo_sapiens_assembly19.dict
+```
+
 **Other Issues in mutations detection**
 --------------------------------------
 
