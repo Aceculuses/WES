@@ -95,8 +95,17 @@ There are several steps need to be done before we call the muations. As we need 
 gatk MarkDuplicates -I sample.sort.bam -M sample.dupMetrix.txt -O sample.rmdup.bam --REMOVE_DUPLICATES true
 ```
 
-2. addReadGroup
-The second step is tricky
+2. Add Read Group
+
+The second step is tricky, the GATK would not work if the bam file does not contain read group information. The read group is related with biological duplicates issues, by using read group tag, the reads from different biological duplicates can be identified. GATK expects all read groups appearing in the read data to be specified in the file header, and will fail with an error if it does not find that information (whether there is no read group information in the file, or a subset of reads do not have read groups).
+
+```
+gatk AddOrReplaceReadGroups -I sample.rmdup.bam -O sample.rmdup.rg.bam -LB Solexa-272222 -PL illumina -PU H0164ALXX140820.2 -SM $sample
+```
+
+FAQs from GATK official website
+
+https://gatk.broadinstitute.org/hc/en-us/articles/360035532352-Errors-about-read-group-RG-information
 
 **Other Issues in mutations detection**
 --------------------------------------
