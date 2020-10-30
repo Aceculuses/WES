@@ -60,7 +60,7 @@ fastp -i read_1.fq -o read_1.clean.fastq -I read_2.fq -O read_2.clean.fastq \
       -f 15 -t 5 -F 15 -T 5
 ```
 
-**STEP2: Reads Mapping**
+**STEP2: Reads Mapping and Sort bam file**
 ----------------------------------
 If you use [bwa](https://github.com/lh3/bwa) or [bwa-mem2](https://github.com/lh3/bwa), you need to index you reference file first. 
 
@@ -79,6 +79,15 @@ OR
 ```
 bwa-mem2 mem Broad_bundle_hg19/hg19_v0_Homo_sapiens_assembly19.fasta read_1.clean.fastq read_2.clean.fastq > sample.sam
 ```
+```
+samtools view -bS sample.sam > sample.bam
+samtools sort sample.bam -o sample.sort.bam
+samtools index sample.sort.bam
+```
+
+**Germline Variant Call using Haplotype**
+-----------------------------------------
+
 
 **Other Issues in mutations detection**
 --------------------------------------
