@@ -87,8 +87,13 @@ samtools index sample.sort.bam
 
 **Germline Variant Call using Haplotype**
 -----------------------------------------
-There are several steps need to be done before we call the muations.
-We
+There are several steps need to be done before we call the muations. As we need to eliminate PCR containmination, it will introduces PCR duplicates reads that will affect the calling model based on sequencing depth. For example, a false SNP cuased by sequencing error should has very shallow sequencing depth like one or two, but if this SNP was duplicateed multiple time during PCR process, the depth is increased, and this false SNP can be recogenised as a true SNP because of relatively high coverage. 
+
+
+MarkDuplicates and Revome PCR effects
+```
+gatk MarkDuplicates -I $1.sort.bam -M $1.dupMetrix.txt -O $1.rmdup.bam --REMOVE_DUPLICATES true
+```
 
 **Other Issues in mutations detection**
 --------------------------------------
