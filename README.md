@@ -87,7 +87,8 @@ samtools index sample.sort.bam
 
 **Germline Variant Call using Haplotype**
 -----------------------------------------
-
+There are several steps need to be done before we call the muations.
+We
 
 **Other Issues in mutations detection**
 --------------------------------------
