@@ -80,4 +80,5 @@ Sequencing depth
 [Variant Interpretation](https://gatk.broadinstitute.org/hc/en-us/articles/360035531692-VCF-Variant-Call-Format)
 
 
-
+**Citations**
+Wang K, Li M, Hakonarson H. ANNOVAR: Functional annotation of genetic variants from next-generation sequencing data Nucleic Acids Research, 38:e164, 2010
