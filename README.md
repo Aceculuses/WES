@@ -13,9 +13,15 @@ Install GATK4 by conda
 conda install GATK4
 ```
 
-The latest GATK4 support VQSR variant correction based on CNN method, so it requires tensorflow as dependencies, which if we want to use CNN correction methods, we need to create a conda environment for GATK4 only follow by the special yaml file. The link explain how to do it indicates as follow.
+The latest GATK4 support VQSR variant correction based on CNN method, so it requires tensorflow as dependencies, which if we want to use CNN correction methods, we need to create a conda environment for GATK4 only follow by the special yaml file. The link explain how to do it indicates as follow. This GATK4 environment cannot share with other softwares otherwise it will collapse.
 
 https://gatk.broadinstitute.org/hc/en-us/articles/360035889851--How-to-Install-and-use-Conda-for-GATK4
+
+Create special enviroment for GATK4 after you downlaod and unzip the GATK file
+
+```
+conda env create -n gatk -f gatkcondaenv.yml
+```
 
 **Download Resource bundle**
 -----------------------------
