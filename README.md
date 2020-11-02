@@ -129,7 +129,17 @@ gatk BaseRecalibrator \
   -O sample.bqsr.grp
 ```
 
+The input BAM file should be the mark and remove the duplicates from the original bam file. This step is not apply BQSR on the bam file, and it just record the BQSR information in the file. The high confidence datasets are used to be as input for training information of the programme.
 
+```
+gatk ApplyBQSR \
+  -R /path/to/reference/hg19_v0_Homo_sapiens_assembly19.fasta \
+  -I sample.rmdup.rg.bam \
+  --bqsr-recal-file sample.bqsr.grp \
+  -O sample.bqsr.bam
+```
+
+Apply BQSR on bam file, using the last step bqsr recall file as input to correct the error.
 
 **Other Issues in mutations detection**
 --------------------------------------
