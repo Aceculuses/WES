@@ -141,6 +141,22 @@ gatk ApplyBQSR \
 
 Apply BQSR on bam file, using the last step bqsr recall file as input to correct the error.
 
+5. HaplotypeCaller
+
+This is the main step calling variants from the bam file. The output is in vcf format (https://gatk.broadinstitute.org/hc/en-us/articles/360035531692-VCF-Variant-Call-Format) which record SNP/InDel.
+
+```
+gatk HaplotypeCaller \
+  -R /path/to/reference/hg19_v0_Homo_sapiens_assembly19.fasta \
+  -L exon_hg19_v0.interval_list \
+  -I sample.bqsr.bam \
+  -O sample.vcf.gz
+```
+The -L option takes either BED file or Picard interval file. One thing should be noticed that the Interval file must be coordinated with reference FASTA file. The most common problem is that the 'chr' prefix before chrom field, e.g chr1 vs 1. The chrom field must be consistent in all the way.
+
+6. Variant Filter
+
+
 **Other Issues in mutations detection**
 --------------------------------------
 
