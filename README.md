@@ -120,6 +120,16 @@ Base quality score recalibration (BQSR) is a process in which is the application
 
 https://gatk.broadinstitute.org/hc/en-us/articles/360035890531-Base-Quality-Score-Recalibration-BQSR-
 
+```
+gatk BaseRecalibrator \
+  -I sample.rmdup.rg.bam \
+  -R /path/to/reference/hg19_v0_Homo_sapiens_assembly19.fasta \
+  --known-sites /path/to/datasets/hg19_v0_dbsnp_138.b37.vcf.gz  \
+  --known-sites /path/to/datasets/hg19_v0_Mills_and_1000G_gold_standard.indels.b37.vcf.gz \
+  -O sample.bqsr.grp
+```
+
+
 
 **Other Issues in mutations detection**
 --------------------------------------
