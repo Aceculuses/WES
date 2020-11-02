@@ -113,7 +113,8 @@ The reference fasta dictionary file should be create. This file is a input file 
 ```
 gatk CreateSequenceDictionary -R hg19_v0_Homo_sapiens_assembly19.fasta -O hg19_v0_Homo_sapiens_assembly19.dict
 ```
-4.Base Recalibration
+
+4. Base Recalibration
 
 Base quality score recalibration (BQSR) is a process in which is the application of machine learning to model these errors empirically and adjust the quality scores accordingly.For example we can identify that, for a given run, whenever we called two A nucleotides in a row, the next base we called had a 1% higher rate of error. So any base call that comes after AA in a read should have its quality score reduced by 1%. We do that over several different covariates (mainly sequence context and position in read, or cycle) in a way that is additive. So the same base may have its quality score increased for one reason and decreased for another.
 
