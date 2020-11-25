@@ -208,6 +208,10 @@ gatk VariantFiltration \
    --genotype-filter-name 'FAIL'
 ```
 
+**Annotation**
+---------------------
+
+
 **Other Issues in mutations detection**
 --------------------------------------
 
