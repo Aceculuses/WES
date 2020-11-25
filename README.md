@@ -210,7 +210,7 @@ gatk VariantFiltration \
 
 **Annotation**
 ---------------------
-
+There are some popular annotaiton scripts such as ANNOVAR, Snpneff and so forth. In my pipepline, I use ANNOVAR (Wang et al., 2010) 
 
 **Other Issues in mutations detection**
 --------------------------------------
