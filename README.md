@@ -156,6 +156,57 @@ The -L option takes either BED file or Picard interval file. One thing should be
 
 6. Variant Filter
 
+The latest GATK version4 combined CNN algorithm to score each mutations based on high quality reference databases such as 1000 Genome. This step will assign a quality score to SNP/InDel.
+```
+gatk CNNScoreVariants \
+   -I sample.bqsr.bam \
+   -V sample.vcf.gz \
+   -R /path/to/reference/hg19_v0_Homo_sapiens_assembly19.fasta \
+   -O sample.CNN.vcf \
+   --tensor-type read_tensor
+```
+
+Then, using CNN_2D to filter out the mutations based on assigned score in the previous step.
+```
+gatk FilterVariantTranches \
+   -V sample.CNN.vcf \
+   --resource /path/tp/reference/hg19_v0_1000G_omni2.5.b37.vcf.gz \
+   --resource /path/to/reference/hg19_v0_1000G_phase1.snps.high_confidence.b37.vcf.gz \
+   --resource /path/to/reference/hg19_v0_Mills_and_1000G_gold_standard.indels.b37.vcf.gz \
+   --info-key CNN_2D \
+   --snp-tranche 99.95 \
+   --indel-tranche 99.4 \
+   --invalidate-previous-filters \
+   -O $path$name.CNNfiltered.vcf
+```
+
+7. Calculating genotype Posteriors
+
+Genotype is important in genetics analysis, especially in genetics consultation field. When analyze family trio samples, genotype probability should be correct.
+
+```
+gatk CalculateGenotypePosteriors \
+    -R /path/to/reference/hg19_v0_Homo_sapiens_assembly19.fasta \
+    -V sample.CNNfiltered.vcf \
+    -supporting /path/to/reference/hg19_v0_1000G_omni2.5.b37.vcf.gz \
+    -supporting /path/to/reference/hg19_v0_hapmap_3.3.b37.vcf.gz \
+    -O sample.genotypeCorrected.vcf
+```
+
+8. Hard filtering 
+
+If you want to filter again, another choice is to do hard filtering. Just like the old version of GATK, hard filtering is popular.
+
+```
+gatk VariantFiltration \
+   -R /path/to/reference/hg19_v0_Homo_sapiens_assembly19.fasta \
+   -V sample.genotypeCorrected.vcf \
+   -O sample.prefiltered.vcf \
+   -filter "QD < 2.0 || MQ < 40.0 || FS > 60.0 || SOR > 3.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0" \
+   --filter-name 'FAIL' \
+   --genotype-filter-expression 'GQ <20' \
+   --genotype-filter-name 'FAIL'
+```
 
 **Other Issues in mutations detection**
 --------------------------------------
