@@ -210,7 +210,29 @@ gatk VariantFiltration \
 
 **Annotation**
 ---------------------
-There are some popular annotaiton scripts such as ANNOVAR, Snpneff and so forth. In my pipepline, I use ANNOVAR (Wang et al., 2010) 
+There are some popular annotaiton scripts such as ANNOVAR, Snpneff and so forth. In my pipepline, I use ANNOVAR (Wang et al., 2010). The advantages of annovar is that Wang will update latest databases such as clinvar, 1000 Genome etc, therefore, we can just download those well prepared databeses from the websites. However, the drawbacks are that if you would like to annotate your own databases on VCF file, it will be inconvenient and the format conversion during the analysis sometimes are confused.
+
+1. Format coversion vcf to avinput
+
+First, annovar require specific format so we can use convert2annovar.pl in the annovar packages to convert the format.
+
+```
+convert2annovar.pl -format vcf4 sample.final.vcf -outfile sample.avinput --withfreq -includeinfo
+```
+
+2. Annotation
+
+Choose your annotation databases, and -operation should match the databases. For example, refGene (g), exac03(f), the details can be found on the website.
+```
+table_annovar.pl sample.avinput /path/to/reference/humandb -buildver hg19 -out sample \
+                         -remove --protocol refGene,exac03,clinvar_20200602,cytoBand,esp6500siv2_all,genomicSuperDups,gwasCatalog,snp142 \
+                         -operation g,f,f,r,f,r,r,f \
+                         -nastring . \
+                         --polish \
+                         -xreffile ~/path/to/reference/hg19_refGene.txt \
+                         --otherinfo \
+                         --thread 32
+```
 
 **Other Issues in mutations detection**
 --------------------------------------
